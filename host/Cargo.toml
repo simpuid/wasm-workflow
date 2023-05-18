@@ -10,6 +10,12 @@ wasmtime = "8.0.1"
 anyhow = "1.0.71"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0.96"
+axum = "0.6.18"
+tokio = { version = "1.28.1", features = ["full"] }
+walkdir = "2.3.3"
+sled = "0.34.7"
+uuid = { version = "1.3.3", features = ["v4"] }
+
 
 
 common = { path = "../common" }

@@ -1,5 +1,6 @@
 use std::i32;
 
+use tokio::time::Instant;
 use wasmtime::{Engine, Instance, Memory, Module, Store, TypedFunc};
 
 use common::{Request, Response};
@@ -118,9 +119,12 @@ impl Program {
 	}
 
 	pub fn execute_request(&mut self, request: &Request) -> anyhow::Result<Response> {
+		let now = Instant::now();
 		let request_string = serde_json::to_string(request)?;
 		let response_string = self.apply(request_string.as_str())?;
 		let response = serde_json::from_str(response_string.as_str())?;
+		let elapsed = now.elapsed();
+		println!("execution_duration: {:.2?}", elapsed);
 		Ok(response)
 	}
 }
