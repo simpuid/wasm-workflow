@@ -114,6 +114,9 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 [[package]]
 name = "common"
 version = "0.1.0"
+dependencies = [
+ "serde",
+]
 
 [[package]]
 name = "cpp_demangle"
@@ -433,6 +436,21 @@ dependencies = [
 [[package]]
 name = "guest"
 version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "common",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "guest-test"
+version = "0.1.0"
+dependencies = [
+ "guest",
+ "serde",
+ "serde_json",
+]
 
 [[package]]
 name = "hashbrown"
@@ -476,6 +494,8 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "common",
+ "serde",
+ "serde_json",
  "wasmtime",
 ]
 
@@ -543,6 +563,12 @@ checksum = "b0fd2260e829bddf4cb6ea802289de2f86d6a7a690192fbe91b3f46e0f2c8473"
 dependencies = [
  "either",
 ]
+
+[[package]]
+name = "itoa"
+version = "1.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "453ad9f582a441959e5f0d088b02ce04cfe8d51a8eaf077f12ac6d3e94164ca6"
 
 [[package]]
 name = "ittapi"
@@ -865,6 +891,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "ryu"
+version = "1.0.13"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f91339c0467de62360649f8d3e185ca8de4224ff281f66000de5eb2a77a79041"
+
+[[package]]
 name = "scopeguard"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -888,6 +920,17 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.16",
+]
+
+[[package]]
+name = "serde_json"
+version = "1.0.96"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "057d394a50403bcac12672b2b18fb387ab6d289d957dab67dd201875391e52f1"
+dependencies = [
+ "itoa",
+ "ryu",
+ "serde",
 ]
 
 [[package]]
